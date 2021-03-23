@@ -1,18 +1,9 @@
 export class Producto {
-    nationalId: string;
-    name: string;
-    dob: Date;
-    idJetSki: string;
-    rentTime: Int8Array;
-    dateAndTimeRent: Date;
+    public nationalId: string;
+    public name: string;
+    public dob: Date;
+    public idJetSki: string;
+    public rentTime: Int8Array;
+    public dateAndTimeRent: Date;
 
-    constructor(nationalId: string, name: string, dob: Date,
-        idJetSki: string, rentTime: Int8Array, dateAndTimeRent: Date) {
-        this.nationalId = nationalId;
-        this.name = name;
-        this.dob = dob;
-        this.idJetSki = idJetSki;
-        this.rentTime = rentTime;
-        this.dateAndTimeRent = dateAndTimeRent;
-    }
 }

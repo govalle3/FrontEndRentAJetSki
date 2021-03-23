@@ -1,15 +1,13 @@
 <h1>Registrar nuevo usuario</h1>
 <h3>Rellene los campos solicitados para validar si es apto para alquilar una Jet Ski</h3>
-<form [formGroup]="productoForm" (ngSubmit)="crear()">
   <div class="clear">
       <div class="row">  
     <div class="col-sm-2">
       <label>Cédula:</label>
     </div>
-    
     <div class="col-sm-4">
-      <input validar type="number" id="idProducto" name="idProducto" placeholder="Ingrese su cédula" class="form-control"
-        formControlName="id">
+      <input validar type="number" id="nationalId" name="nationalId" placeholder="Ingrese su cédula" class="form-control"
+        formControlName="nationalId">
     </div>
   </div>
   </div>
@@ -60,4 +58,3 @@
         <button type="submit"  (click)="crear()" class="btn btn-default btn-save">Alquilar</button>
     </div>
 </div>
-</form>

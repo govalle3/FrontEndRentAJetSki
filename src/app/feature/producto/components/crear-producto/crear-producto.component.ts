@@ -1,35 +1,42 @@
-
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from '../../shared/service/producto.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
+
+import { ProductoService } from '../../shared/service/producto.service';
+import { Producto } from '@producto/shared/model/producto';
+import { OK } from '@producto/shared/model/httpstatus';
 
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
-  styleUrls: ['./crear-producto.component.css']
+  styleUrls: ['./crear-producto.component.css'],
+  providers: [ProductoService]
 })
 export class CrearProductoComponent implements OnInit {
-  productoForm: FormGroup;
-  constructor(protected productoServices: ProductoService) { }
+  public producto: Producto;
+  public message: string = "";
+  
+  constructor(protected productoServices: ProductoService, private router: Router) {
+    this.producto = new Producto();
+   }
 
-  ngOnInit() {
-    this.construirFormularioProducto();
-   
+  ngOnInit(): void {
+  
   }
 
-  crear() {
+  public crear(): void {
     
-    this.productoServices.guardar(this.productoForm.value);
-  }
+    this.productoServices.guardar(this.producto).subscribe(res => {
 
-  private construirFormularioProducto() {
-    this.productoForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      if(res.responseCode == OK){
+
+        this.router.navigate(['/ListarProductoComponent']);
+
+      }else {
+
+        this.message = res.message;
+
+      }
     });
   }
 
