@@ -1,0 +1,32 @@
+<p>Listado de alquileres</p>
+<div id="productos">
+  <ul class="productos">
+    <li *ngFor="let item of listaProductos | async">
+      <span>{{item.id}}</span> {{item.descripcion}}
+    </li>
+  </ul>
+  <div class="clear">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">National Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Jet Ski</th>
+            <th scope="col">Time Rent</th>
+            <th scope="col">Date and Time Rent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listaProductos">
+            <td>{{item.nationalId}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.dob}}</td>
+            <td>{{item.idJetSki}}</td>
+            <td>{{item.rentTime}}</td>
+            <td>{{item.dateAndTimeRent}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
