@@ -1,60 +1,54 @@
 <h1>Registrar nuevo usuario</h1>
 <h3>Rellene los campos solicitados para validar si es apto para alquilar una Jet Ski</h3>
-  <div class="clear">
-      <div class="row">  
-    <div class="col-sm-2">
-      <label>Cédula:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="number" id="nationalId" name="nationalId" placeholder="Ingrese su cédula" class="form-control"
-        formControlName="nationalId">
-    </div>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Nombre y apellido:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="text" id="descripcionProducto" name="descripcion" placeholder="Ingrese su nombre y apellido"
-        class="form-control" formControlName="descripcion">
+<form class="form-horizontal main-form">  
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="nationalId">Cédula:</label>
+    <div class="col-sm-5" for="nationalId">
+      <input validar type="number" id="nationalId" [(ngModel)]="producto.nationalId" name="nationalId" placeholder="Ingrese su cédula" 
+      class="form-control">
     </div>
   </div>
-  <div class="clear">
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Fecha de nacimiento:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="date" id="dob" name="dob" placeholder="Fecha de nacimiento"
-        class="form-control" formControlName="dob">
+
+  <div class="form-group">
+      <label label class="control-label col-sm-3" for="name">Nombres:</label>
+    <div class="col-sm-5">
+      <input validar type="text" id="name" [(ngModel)]="producto.name" name="name" placeholder="Ingrese su nombre y apellido"
+        class="form-control">
     </div>
   </div>
-  </div>
-  <div class="clear">
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Motos Acuáticas:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="List" id="idJetSki" name="idJetSki" placeholder="Elija su moto de la lista"
-        class="form-control" formControlName="idJetSki">
+
+  <div class="form-group" >
+      <label class="control-label col-sm-3" for="dob">Fecha nacido:</label>
+    <div class="col-sm-5">
+      <input validar type="date" id="dob" [(ngModel)]="producto.dob" name="dob" placeholder="Fecha de nacimiento"
+        class="form-control">
     </div>
   </div>
-  </div>
-  <div class="clear">
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Tiempo de alquiler:</label>
+
+  <div class="form-group">
+        <label class="control-label col-sm-3" for="rentTime">Tiempo alquiler:</label>
+      <div class="col-sm-5">
+        <input validar type="number" id="rentTime" [(ngModel)]="producto.rentTime" name="rentTime" placeholder="Ingrese un tiempo en minutos"
+          class="form-control">
+      </div>
     </div>
-    <div class="col-sm-4">
-      <input validar type="number" id="rentTime" name="rentTime" placeholder="Ingrese un tiempo en minutos"
-        class="form-control" formControlName="rentTime">
+
+  <div class="form-group">
+      <label class="control-label col-sm-3" for="idJetSki">Motos Acuáticas:</label>
+    <div class="col-sm-5">
+        <select class="form-select" id="idJetSki" [(ngModel)]="producto.idJetSki" name="idJetSki">
+          <option selected>Seleccione una moto</option>
+          <option>BC001</option>
+          <option>BC002</option>
+          <option>BC003</option>
+        </select>
     </div>
   </div>
-  </div>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
         <button type="submit"  (click)="crear()" class="btn btn-default btn-save">Alquilar</button>
     </div>
 </div>
+</form>

@@ -7,6 +7,7 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -15,10 +16,12 @@ import { ProductoService } from './shared/service/producto.service';
     ListarProductoComponent,
     BorrarProductoComponent,
     ProductoComponent
+    
   ],
   imports: [
     ProductoRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [ProductoService]
 })
