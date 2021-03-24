@@ -10,8 +10,8 @@ import { Producto } from '../model/producto';
 
 @Injectable()
 export class ProductoService {
-  
-  private horaYFecha: string;
+
+  public horaYFechaFormato: string;
 
   private apiServerUrl = environment.endpoint;
 
@@ -23,9 +23,8 @@ export class ProductoService {
     var curr_hour = d.getHours();
     var curr_min = d.getMinutes();
     var curr_sec = d.getSeconds();
-    this.horaYFecha = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?" ":" 0") +
-                                    curr_hour + (curr_min>9?":":":0") + curr_min   + ":" + curr_sec;
-  
+    this.horaYFechaFormato = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?"T":"T0") +
+                                    curr_hour + (curr_min>9?":":":0") + curr_min   + (curr_sec>9?":":":0") + curr_sec;
 
   }
 
@@ -37,8 +36,8 @@ export class ProductoService {
     return this.http.post<RestResponse>(`${this.apiServerUrl}/crear`, producto);
   }
 
-  public pagar(cedula: number) {
-    return this.http.post<boolean>(`${this.apiServerUrl}/pagar?nationalId${cedula}&dateAndTimeCheckout${this.horaYFecha}`,null);
+  public pagar(cedula: number): Observable<number> {
+    return this.http.post<number>(`${this.apiServerUrl}/pagar?nationalId=${cedula}&dateAndTimeCheckout=${this.horaYFechaFormato}`,null);
   }
 
 }

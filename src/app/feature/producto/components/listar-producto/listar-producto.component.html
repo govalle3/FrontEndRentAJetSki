@@ -10,6 +10,7 @@
             <th scope="col">Jet Ski</th>
             <th scope="col">Time Rent</th>
             <th scope="col">Date and Time Rent</th>
+            <th>Accion</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
             <td>{{item.idJetSki}}</td>
             <td>{{item.rentTime}}</td>
             <td>{{item.dateAndTimeRent}}</td>
+            <td><img src="/src/assets/favicon/Pay.png" class="payIcon" (click)="pagar()"></td>
           </tr>
         </tbody>
       </table>

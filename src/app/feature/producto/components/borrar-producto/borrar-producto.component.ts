@@ -1,6 +1,4 @@
-import { FormControl, FormGroup } from '@angular/forms';
-
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 
 import { ProductoService } from '@producto/shared/service/producto.service';
 
@@ -10,29 +8,27 @@ import { ProductoService } from '@producto/shared/service/producto.service';
   styleUrls: ['./borrar-producto.component.css']
 })
 
-@Input('nationalId')
-export class BorrarProductoComponent implements OnInit {
-  form = new FormGroup({
-    nationalId: new FormControl
-  });
 
-  get nationalId(): any {
-    return this.form.get('nationalId');
-  }
-  
+
+export class BorrarProductoComponent implements OnInit {
+  public total: number;
+  public nationalId: number;
+
   
   constructor(protected productoServices: ProductoService) {
- 
   
    }
 
-
   ngOnInit() {
+    
   }
 
-  pagar() {
-    console.log(this.form.value);
-    this.productoServices.pagar(this.form.value);
-  }
-
+  pagar(nationalId: number) {
+    console.log(nationalId);
+    this.productoServices.pagar(nationalId).subscribe(res => {
+      this.total = res;
+      console.log(this.total);
+  });
+  
+}
 }
