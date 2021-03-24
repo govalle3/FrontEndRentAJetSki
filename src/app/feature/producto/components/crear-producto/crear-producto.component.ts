@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OK } from '@producto/shared/model/httpstatus';
+
 
 
 import { ProductoService } from '../../shared/service/producto.service';
 import { Producto } from '@producto/shared/model/producto';
-import { OK } from '@producto/shared/model/httpstatus';
+
 
 
 @Component({
@@ -20,6 +22,7 @@ export class CrearProductoComponent implements OnInit {
   public horaYFecha: string;
 
   constructor(private productoServices: ProductoService, private router: Router) {
+
     this.producto = new Producto();
     var d = new Date();
     var curr_date = d.getDate();
@@ -28,8 +31,8 @@ export class CrearProductoComponent implements OnInit {
     var curr_hour = d.getHours();
     var curr_min = d.getMinutes();
     var curr_sec = d.getSeconds();
-    this.producto.dateAndTimeRent = curr_year + "-0" + curr_month + "-" + curr_date + " " +
-                                    curr_hour + ":" + curr_min   + ":" + curr_sec;
+    this.producto.dateAndTimeRent = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?" ":" 0") +
+                                    curr_hour + (curr_min>9?":":":0") + curr_min   + ":" + curr_sec;
   
    }
 
@@ -40,13 +43,20 @@ export class CrearProductoComponent implements OnInit {
   public crear(): void {   
     console.log(this.producto.dateAndTimeRent);// gets the hours in the timezone of the browser.
     this.productoServices.guardar(this.producto).subscribe(res => {
-      if(res.responseCode == OK){
-        this.router.navigate(['/ListarProductoComponent']);
-      }else {
 
-        this.message = res.message;
+      if(res.responseCode == OK){
+
+        this.router.navigate(['/ListarProductoComponent']);
+
       }
+      else {
+        
+        this.message = res.message;
+
+      }
+
     });
+
   }
 
 }
