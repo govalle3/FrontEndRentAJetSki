@@ -28,6 +28,7 @@ export class BorrarProductoComponent implements OnInit {
     this.productoServices.pagar(nationalId).subscribe(res => {
       this.total = res;
       console.log(this.total);
+      
   });
   
 }
