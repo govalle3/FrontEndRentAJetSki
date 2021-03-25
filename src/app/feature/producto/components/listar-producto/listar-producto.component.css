@@ -1,3 +1,10 @@
 .payIcon{
     cursor: pointer;
 }
+
+.clear{
+    font-size: small;
+    background-color: rgb(216, 146, 146);
+    text-decoration-color: aliceblue;
+    font-style:normal;
+}

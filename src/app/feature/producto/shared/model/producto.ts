@@ -1,5 +1,3 @@
-
-
 export class Producto {
     public nationalId: string;
     public name: string;
