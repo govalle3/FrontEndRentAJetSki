@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 import { ListarProductoComponent } from './components/listar-producto/listar-producto.component';
 import { BorrarProductoComponent } from './components/borrar-producto/borrar-producto.component';
+import { AlquilerProductoComponent } from "./components/alquiler-producto/alquiler-producto.component";
 import { ProductoComponent } from './components/producto/producto.component';
 
 
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'borrar',
         component: BorrarProductoComponent
+      },
+      {
+        path: 'alquilar',
+        component: AlquilerProductoComponent
       }
     ]
   }

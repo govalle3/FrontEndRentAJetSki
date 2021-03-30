@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:7474/RentJetSki/alquiler'
+  endpoint: 'http://localhost:7474/RentJetSki/gestionar-alquiler'
 };
 
 /*

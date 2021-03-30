@@ -1,4 +1,14 @@
-<h5>Listado de alquileres</h5>
+<h6>Listado de alquileres</h6>
+<div class="form-horizontal main-form">
+  <label class="control-label col-sm-5" for="tiposDeLista">Seleccione un tipo de lista:</label>
+<div class="col-sm-4">
+    <select class="form-select" [(ngModel)]="opcionSeleccionada" id="tiposDeLista" (ngModelChange)="onChange($event)"name="tiposDeLista">
+      <option value="0">Seleccione un tipo de lista</option>
+      <option *ngFor="let item of lista">{{item}}</option>
+    </select>
+    {{opcionSeleccionada}}
+</div>
+</div>
 <div id="productos">
   <div class="clear">
     <table class="table">
@@ -10,7 +20,7 @@
             <th scope="col">Jet Ski</th>
             <th scope="col">Time Rent</th>
             <th scope="col">Date and Time Rent</th>
-            <th>Accion</th>
+            <th>Pagar</th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +31,7 @@
             <td>{{item.idJetSki}}</td>
             <td>{{item.rentTime}}</td>
             <td>{{item.dateAndTimeRent}}</td>
-            <td><img src="/src/assets/favicon/Pay.png" class="payIcon" (click)="pagar()"></td>
+            <td><img src="./assets/favicon/Pay.png" class="payIcon" (click)="pagar(item.nationalId)"></td>
           </tr>
         </tbody>
       </table>

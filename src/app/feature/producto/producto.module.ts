@@ -8,6 +8,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
 import { FormsModule } from "@angular/forms";
+import { AlquilerProductoComponent } from "./components/alquiler-producto/alquiler-producto.component";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule } from "@angular/forms";
     CrearProductoComponent,
     ListarProductoComponent,
     BorrarProductoComponent,
-    ProductoComponent
+    ProductoComponent,
+    AlquilerProductoComponent
     
   ],
   imports: [

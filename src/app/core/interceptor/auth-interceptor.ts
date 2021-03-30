@@ -6,7 +6,8 @@ import { catchError } from 'rxjs/operators';
 
 const UNAUTHORIZED = 401;
 const FORBIDDEN = 403;
-
+// inetrceptos a nvel de hhtp identifica el cuando ocurre un error de auttentiacion o de permisos
+// si no es un error
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 

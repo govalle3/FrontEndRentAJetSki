@@ -6,11 +6,12 @@ import { Injectable } from '@angular/core';
 import { Producto } from '../model/producto';
 
 
-
-
 @Injectable()
 export class ProductoService {
 
+  public nationalId: number;
+  public idJetSki: string;
+  public rentTime: number;
   public horaYFechaFormato: string;
 
   private apiServerUrl = environment.endpoint;
@@ -32,12 +33,28 @@ export class ProductoService {
     return this.http.get<Producto[]>(`${this.apiServerUrl}/listar`);
   }
 
+  public consultarPorPagar(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(`${this.apiServerUrl}/listar-por-pagar`);
+  }
+
+  public consultarPagados(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(`${this.apiServerUrl}/listar-pagados`);
+  }
+
   public guardar(producto: Producto): Observable<RestResponse> {
-    return this.http.post<RestResponse>(`${this.apiServerUrl}/crear`, producto);
+    return this.http.post<RestResponse>(`${this.apiServerUrl}/gestionar-usuarios/alquilar`, producto);
   }
 
   public pagar(cedula: number): Observable<number> {
-    return this.http.post<number>(`${this.apiServerUrl}/pagar?nationalId=${cedula}&dateAndTimeCheckout=${this.horaYFechaFormato}`,null);
+    return this.http.post<number>(`${this.apiServerUrl}/gestionar-montos/monto?nationalId=${cedula}&dateAndTimeCheckout=${this.horaYFechaFormato}`,null);
+  }
+
+  public actualizarDatosDePago(cedula: number): Observable<RestResponse> {
+   return this.http.put<RestResponse>(`${this.apiServerUrl}/gestionar-pago?nationalId=${cedula}`,null);
+  }
+
+  public registrarAlquilerExistente(nationalId: number, idJetSki: string, rentTime: number): Observable<RestResponse> {
+    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquilar?nationalId=${nationalId}&idJetSki=${idJetSki}&rentTime=${rentTime}&dateAndTimeRent=${this.horaYFechaFormato}`,null);
   }
 
 }
