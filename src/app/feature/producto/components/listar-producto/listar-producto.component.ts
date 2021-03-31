@@ -9,19 +9,21 @@ import { Producto } from '@producto/shared/model/producto';
   templateUrl: './listar-producto.component.html',
   styleUrls: ['./listar-producto.component.css']
 })
+
 export class ListarProductoComponent implements OnInit {
   public tiposDeLista: string;
   public lista:string[]=["Alquileres Pagados","Alquileres no pagados","Todos los alquileres"];
   public opcionSeleccionada: string  = "";
   public respuesta: string;
-
   public listaProductos: Array<Producto>;
+  public img: ImageBitmap;
 
-  constructor(private productoService: ProductoService, private router: Router) { }
+  constructor(private productoService: ProductoService, private router: Router) {
+    
+   }
 
   ngOnInit() {
     this.loadUsers();
-    console.log(this.opcionSeleccionada);
   }
 
   private loadUsers(): void {
@@ -30,8 +32,8 @@ export class ListarProductoComponent implements OnInit {
     });
   }
 
-  public pagar(nationalId: number): void{
-    sessionStorage.setItem('nationalId',JSON.stringify(nationalId));
+  public pagar(cedula: number): void{
+    sessionStorage.setItem('cedula',JSON.stringify(cedula));
     this.router.navigate(['/producto/borrar'])
   }
 
@@ -40,11 +42,13 @@ export class ListarProductoComponent implements OnInit {
       console.log(e);
       this.productoService.consultarPagados().subscribe(res => {
         this.listaProductos = res;
+        
         this.router.navigate(['/producto/listar']);
     });}
 
     if(this.opcionSeleccionada == this.lista[1]){
-      console.log(e);this.productoService.consultarPorPagar().subscribe(res => {
+      console.log(e);
+      this.productoService.consultarPorPagar().subscribe(res => {
         this.listaProductos = res;
         this.router.navigate(['/producto/listar']);
 
@@ -56,11 +60,7 @@ export class ListarProductoComponent implements OnInit {
         this.listaProductos = res;
         this.router.navigate(['/producto/listar']);
     });
-
     }
-    
-
   }
-
 }
  

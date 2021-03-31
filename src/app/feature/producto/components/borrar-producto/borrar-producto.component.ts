@@ -13,16 +13,16 @@ import { ProductoService } from '@producto/shared/service/producto.service';
 export class BorrarProductoComponent implements OnInit {
   public total: number;
   public respuesta: string;
-  public nationalId: number;
+  public cedula: number;
 
   
   constructor(protected productoServices: ProductoService, protected router: Router) {
 
-    if(sessionStorage.getItem("nationalId")){
-      this.nationalId = JSON.parse(sessionStorage.getItem("nationalId"));
-      this.traerDatosParaPago(this.nationalId);
+    if(sessionStorage.getItem("cedula")){
+      this.cedula = JSON.parse(sessionStorage.getItem("cedula"));
+      this.traerDatosParaPago(this.cedula);
     }else{
-      this.nationalId = this.nationalId;
+      this.cedula = this.cedula;
     }
   
    }
@@ -35,8 +35,8 @@ export class BorrarProductoComponent implements OnInit {
   /**
    * traerDatosParaPago
    */
-  public traerDatosParaPago(nationalId: number) {
-    this.productoServices.pagar(nationalId).subscribe(res => {
+  public traerDatosParaPago(cedula: number) {
+    this.productoServices.pagar(cedula).subscribe(res => {
       this.total = res;
       console.log(this.total);
       
@@ -45,8 +45,8 @@ export class BorrarProductoComponent implements OnInit {
     /**
    * actualizarDatosPagado
    */
-     public actualizarDatosPagado(nationalId: number) {
-      this.productoServices.actualizarDatosDePago(nationalId).subscribe(res => {
+     public actualizarDatosPagado(cedula: number) {
+      this.productoServices.actualizarDatosDePago(cedula).subscribe(res => {
         this.respuesta = res + '';
         this.router.navigate(['/producto/listar']);
     });}  

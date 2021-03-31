@@ -30,31 +30,31 @@ export class ProductoService {
   }
 
   public consultar(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.apiServerUrl}/listar`);
+    return this.http.get<Producto[]>(`${this.apiServerUrl}/alquiler`);
   }
 
   public consultarPorPagar(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.apiServerUrl}/listar-por-pagar`);
+    return this.http.get<Producto[]>(`${this.apiServerUrl}/alquiler/por-pago`);
   }
 
   public consultarPagados(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.apiServerUrl}/listar-pagados`);
+    return this.http.get<Producto[]>(`${this.apiServerUrl}/alquiler/pagados`);
   }
 
   public guardar(producto: Producto): Observable<RestResponse> {
-    return this.http.post<RestResponse>(`${this.apiServerUrl}/gestionar-usuarios/alquilar`, producto);
+    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios/alquiler`, producto);
   }
 
   public pagar(cedula: number): Observable<number> {
-    return this.http.post<number>(`${this.apiServerUrl}/gestionar-montos/monto?nationalId=${cedula}&dateAndTimeCheckout=${this.horaYFechaFormato}`,null);
+    return this.http.post<number>(`${this.apiServerUrl}/usuario/monto?cedula=${cedula}&fechaYHoraEntrega=${this.horaYFechaFormato}`,null);
   }
 
   public actualizarDatosDePago(cedula: number): Observable<RestResponse> {
-   return this.http.put<RestResponse>(`${this.apiServerUrl}/gestionar-pago?nationalId=${cedula}`,null);
+   return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`,null);
   }
 
   public registrarAlquilerExistente(nationalId: number, idJetSki: string, rentTime: number): Observable<RestResponse> {
-    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquilar?nationalId=${nationalId}&idJetSki=${idJetSki}&rentTime=${rentTime}&dateAndTimeRent=${this.horaYFechaFormato}`,null);
+    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquiler?nationalId=${nationalId}&idJetSki=${idJetSki}&rentTime=${rentTime}&dateAndTimeRent=${this.horaYFechaFormato}`,null);
   }
 
 }

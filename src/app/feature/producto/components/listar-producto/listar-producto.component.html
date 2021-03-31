@@ -3,10 +3,8 @@
   <label class="control-label col-sm-5" for="tiposDeLista">Seleccione un tipo de lista:</label>
 <div class="col-sm-4">
     <select class="form-select" [(ngModel)]="opcionSeleccionada" id="tiposDeLista" (ngModelChange)="onChange($event)"name="tiposDeLista">
-      <option value="0">Seleccione un tipo de lista</option>
       <option *ngFor="let item of lista">{{item}}</option>
     </select>
-    {{opcionSeleccionada}}
 </div>
 </div>
 <div id="productos">
@@ -14,24 +12,20 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">National Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Date of Birth</th>
+            <th scope="col">Cedula</th>
             <th scope="col">Jet Ski</th>
-            <th scope="col">Time Rent</th>
-            <th scope="col">Date and Time Rent</th>
+            <th scope="col">Tiempo Rentado</th>
+            <th scope="col">Fecha y hora renta</th>
             <th>Pagar</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of listaProductos">
-            <td>{{item.nationalId}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.dob}}</td>
+            <td>{{item.cedula}}</td>
             <td>{{item.idJetSki}}</td>
-            <td>{{item.rentTime}}</td>
-            <td>{{item.dateAndTimeRent}}</td>
-            <td><img src="./assets/favicon/Pay.png" class="payIcon" (click)="pagar(item.nationalId)"></td>
+            <td>{{item.tiempoRenta}}</td>
+            <td>{{item.fechaYHoraRenta}}</td>
+            <td><img src="./assets/favicon/Pay.png" class="payIcon" (click)="pagar(item.cedula)"></td>
           </tr>
         </tbody>
       </table>

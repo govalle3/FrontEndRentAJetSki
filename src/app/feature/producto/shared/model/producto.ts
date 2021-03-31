@@ -1,9 +1,9 @@
 export class Producto {
-    public nationalId: string;
-    public name: string;
-    public dob: Date;
+    public cedula: string;
+    public nombre: string;
+    public fechaNacido: Date;
     public idJetSki: string;
-    public rentTime: Int8Array;
-    public dateAndTimeRent: string;
+    public tiempoRenta: Int8Array;
+    public fechaYHoraRenta: string;
 
 }

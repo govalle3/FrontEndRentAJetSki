@@ -38,9 +38,9 @@ export class CrearProductoComponent implements OnInit {
     var curr_hour = d.getHours();
     var curr_min = d.getMinutes();
     var curr_sec = d.getSeconds();
-    this.producto.dateAndTimeRent = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?" ":" 0") +
+    this.producto.fechaYHoraRenta = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?" ":" 0") +
                                     curr_hour + (curr_min>9?":":":0") + curr_min   + (curr_sec>9?":":":0") + curr_sec;  
-    console.log(this.producto.dateAndTimeRent);
+    console.log(this.producto.fechaYHoraRenta);
     this.productoServices.guardar(this.producto).subscribe(res => {
      
         this.message = res + '';

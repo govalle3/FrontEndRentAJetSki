@@ -1,7 +1,8 @@
 {
-  "/RentJetSki": {
+  "/gestion-alquileres": {
     "target": "http://localhost:7474",
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "secure": false
   }
 
 }

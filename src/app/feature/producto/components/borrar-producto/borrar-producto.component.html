@@ -5,7 +5,7 @@
   <div class="form-group">
     <label class="control-label col-sm-3">Cédula:</label>
     <div class="col-sm-5">
-      <input type="number" id="nationalId" [(ngModel)]="nationalId" name="nationalId" placeholder="Ingrese su cédula"
+      <input type="number" id="cedula" [(ngModel)]="cedula" name="cedula" placeholder="Ingrese su cédula"
         class="form-control">
     </div>
   </div>
@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" (click)="actualizarDatosPagado(nationalId)" class="btn btn-default btn-save">Pagar</button>
+      <button type="submit" (click)="actualizarDatosPagado(cedula)" class="btn btn-default btn-save">Pagar</button>
     </div>
   </div>
 
