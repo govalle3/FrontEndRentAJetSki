@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrearUsuarioComponent } from './crear-usuario.component';
+import { CrearUsuarioComponent } from './crear-usuario-alquiler.component';
 
 describe('CrearUsuarioComponent', () => {
   let component: CrearUsuarioComponent;
