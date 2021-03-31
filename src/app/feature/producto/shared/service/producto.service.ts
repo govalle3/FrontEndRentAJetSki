@@ -53,8 +53,8 @@ export class ProductoService {
    return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`,null);
   }
 
-  public registrarAlquilerExistente(nationalId: number, idJetSki: string, rentTime: number): Observable<RestResponse> {
-    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquiler?nationalId=${nationalId}&idJetSki=${idJetSki}&rentTime=${rentTime}&dateAndTimeRent=${this.horaYFechaFormato}`,null);
+  public registrarAlquilerExistente(nationalId: number, idJetSki: string, rentTime: number, fechaYHoraFormato: string): Observable<RestResponse> {
+    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquiler?cedula=${nationalId}&idJetSki=${idJetSki}&tiempoRenta=${rentTime}&fechaYHoraRenta=${fechaYHoraFormato}`,null);
   }
 
 }

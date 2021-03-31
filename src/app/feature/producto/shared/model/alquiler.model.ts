@@ -1,8 +1,8 @@
 export class AlquilerModel {
-public nationalId: string;
-name: string;
-dob: Date;
+public cedula: string;
+nombre: string;
+fecha: Date;
 idJetSki: string;
-rentTime: Int8Array;
-dateAndTimeRent: Date;
+tiempoRenta: Int8Array;
+fechaYHoraRenta: Date;
 }
