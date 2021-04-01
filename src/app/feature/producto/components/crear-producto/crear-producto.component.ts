@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
-
 import { ProductoService } from '../../shared/service/producto.service';
 import { Producto } from '@producto/shared/model/producto';
-
-
 
 @Component({
   selector: 'app-crear-producto',

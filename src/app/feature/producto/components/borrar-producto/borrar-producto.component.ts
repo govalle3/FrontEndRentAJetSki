@@ -20,7 +20,7 @@ export class BorrarProductoComponent implements OnInit {
 
     if(sessionStorage.getItem("cedula")){
       this.cedula = JSON.parse(sessionStorage.getItem("cedula"));
-      this.traerDatosParaPago(this.cedula);
+      this.montoAPagar(this.cedula);
     }else{
       this.cedula = this.cedula;
     }
@@ -33,9 +33,9 @@ export class BorrarProductoComponent implements OnInit {
   }
 
   /**
-   * traerDatosParaPago
+   * montoAPagar
    */
-  public traerDatosParaPago(cedula: number) {
+  public montoAPagar(cedula: number) {
     this.productoServices.pagar(cedula).subscribe(res => {
       this.total = res;
       console.log(this.total);
@@ -45,7 +45,7 @@ export class BorrarProductoComponent implements OnInit {
     /**
    * actualizarDatosPagado
    */
-     public actualizarDatosPagado(cedula: number) {
+     public pagar(cedula: number) {
       this.productoServices.actualizarDatosDePago(cedula).subscribe(res => {
         this.respuesta = res + '';
         this.router.navigate(['/producto/listar']);

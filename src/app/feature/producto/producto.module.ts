@@ -18,8 +18,8 @@ import { AlquilerProductoComponent } from "./components/alquiler-producto/alquil
     BorrarProductoComponent,
     ProductoComponent,
     AlquilerProductoComponent
-    
   ],
+  
   imports: [
     ProductoRoutingModule,
     SharedModule,

@@ -1,8 +1,8 @@
+import { AlquilerComponent } from './components/alquiler/alquiler.component';
 import { PagarAlquilerComponent } from './components/pagar-alquiler/pagar-alquiler.component';
 import { ListarAlquilerComponent } from './components/listar-alquiler/listar-alquiler.component';
 import { CrearUsuarioAlquilerComponent } from './components/crear-usuario-alquiler/crear-usuario-alquiler.component';
 import { CrearAlquilerComponent } from './components/crear-alquiler/crear-alquiler.component';
-import { AlquilerComponent } from './components/alquiler/alquiler.component';
 
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";

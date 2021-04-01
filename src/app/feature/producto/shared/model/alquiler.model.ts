@@ -1,5 +1,5 @@
 export class AlquilerModel {
-public cedula: string;
+cedula: string;
 nombre: string;
 fecha: Date;
 idJetSki: string;

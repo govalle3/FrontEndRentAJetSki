@@ -9,11 +9,7 @@ import { Producto } from '../model/producto';
 @Injectable()
 export class ProductoService {
 
-  public nationalId: number;
-  public idJetSki: string;
-  public rentTime: number;
   public horaYFechaFormato: string;
-
   private apiServerUrl = environment.endpoint;
 
   constructor(private http: HttpClient) {

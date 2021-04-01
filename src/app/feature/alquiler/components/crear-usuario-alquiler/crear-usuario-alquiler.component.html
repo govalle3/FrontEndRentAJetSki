@@ -1,1 +1,54 @@
-<p>crear-usuario works!</p>
+<h3>Registrar nuevo usuario</h3>
+<h6>Rellene los campos solicitados para validar si es apto para alquilar una Jet Ski</h6>
+<form class="form-horizontal main-form">  
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="cedula">Cédula:</label>
+    <div class="col-sm-5" >
+      <input type="number" id="cedula"  [(ngModel)]="usuarioAlquiler.cedula" name="cedula" placeholder="Ingrese su cédula" 
+      class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group">
+      <label label class="control-label col-sm-3" for="nombre">Nombres:</label>
+    <div class="col-sm-5">
+      <input type="text" id="nombre" [(ngModel)]="usuarioAlquiler.nombre" name="nombre" placeholder="Ingrese su nombre y apellido"
+        class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group" >
+      <label class="control-label col-sm-3" for="fechaNacido">Fecha nacido:</label>
+    <div class="col-sm-5">
+      <input type="date" id="fechaNacido" [(ngModel)]="usuarioAlquiler.fechaNacido" name="dob" placeholder="Fecha de nacimiento"
+        class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group">
+        <label class="control-label col-sm-3" for="tiempoRenta">Tiempo alquiler:</label>
+      <div class="col-sm-5">
+        <input type="number" id="tiempoRenta" [(ngModel)]="usuarioAlquiler.tiempoRenta" name="tiempoRenta" placeholder="Ingrese un tiempo en minutos"
+          class="form-control">
+      </div>
+    </div>
+
+  <div class="form-group">
+      <label class="control-label col-sm-3" for="idJetSki">Motos Acuáticas:</label>
+    <div class="col-sm-5">
+        <select class="form-select" id="idJetSki" [(ngModel)]="usuarioAlquiler.idJetSki" name="idJetSki">
+          <option selected>Seleccione una moto</option>
+          <option>BC001</option>
+          <option>BC002</option>
+          <option>BC003</option>
+        </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit"  (click)="crearUsuarioAlquiler()" class="btn btn-default btn-save">Alquilar</button>
+    </div>
+</div>
+</form>
