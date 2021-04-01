@@ -20,7 +20,7 @@ export class AlquilerUsuarioService {
     var curr_hour = d.getHours();
     var curr_min = d.getMinutes();
     var curr_sec = d.getSeconds();
-    this.horaYFecha = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?"T":"T0") +
+    this.horaYFecha = curr_year + (curr_month>9?"-":"-0") + curr_month + (curr_date>9?"-":"-0") + curr_date + (curr_hour>9?"T":"T0") +
                                     curr_hour + (curr_min>9?":":":0") + curr_min   + (curr_sec>9?":":":0") + curr_sec;
 
    }

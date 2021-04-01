@@ -2,7 +2,7 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
-const { SpecReporter } = require('jasmine-spec-reporter');
+const { SpecReporter } = require('jasmine-spec-reporter'); // paquete instalado en angular por defecto, lo necesitamos para el reporte sea algo leible
 var HtmlReporter = require('protractor-beautiful-reporter');
 
 /**
@@ -11,10 +11,11 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './src/**/*.e2e-spec.ts'
+    './src/test/alquiler.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',

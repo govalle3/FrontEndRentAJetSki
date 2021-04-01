@@ -7,9 +7,9 @@
     </select>
 </div>
 </div>
-<div id="productos">
+<div id="alquileres">
   <div class="clear">
-    <table class="table">
+    <table class="table" id="alquileres">
         <thead>
           <tr>
             <th scope="col">Cedula</th>
@@ -25,7 +25,7 @@
             <td>{{item.idJetSki}}</td>
             <td>{{item.tiempoRenta}}</td>
             <td>{{item.fechaYHoraRenta}}</td>
-            <td><img src="./assets/favicon/Pay.png" class="payIcon" (click)="pagar(item.cedula)"></td>
+            <td id="AccionMontoBoton"><img src="./assets/favicon/Pay.png" id="AccionMontoBoton" class="payIcon" (click)="pagar(item.cedula)"></td>
           </tr>
         </tbody>
       </table>
