@@ -14,13 +14,11 @@ describe('workspace-project Alquiler', () => {
     });
 
     it('Deberia crear un usario y un alquiler', () => {
-
         const CEDULA = '1098';
         const NOMBRE = 'German ovalle';
         const FECHANACIMIENTO = "1990-02-26";
         const IDJETSKI = 'BC001';
         const TIEMPORENTA = '10';
-
         page.navigateTo();
         navBar.clickLinkAlquileres();
         alquiler.clickLinkCrearUsuarioAlquiler();
@@ -32,11 +30,10 @@ describe('workspace-project Alquiler', () => {
         alquiler.clickBotonCrearUsuarioAlquiler();
     });
 
-    it('Deberia crear un alquiler', ()=>{
+    it('Deberia crear un alquiler',()=>{
         const CEDULA = '1098';
         const IDJETSKI = 'BC002';
         const TIEMPORENTA = '15';
-
         page.navigateTo();
         navBar.clickLinkAlquileres();
         alquiler.clickLinkCrearAlquiler();
@@ -46,21 +43,18 @@ describe('workspace-project Alquiler', () => {
         alquiler.clickBotonCrearAlquiler();
 	});
 
-    it('Deberia listar productos', () => {
+    it('Deberia listar productos',() => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
         alquiler.contarAlquileres();
         expect(1).toBe(alquiler.contarAlquileres());
     });
 
-    it('Deberia calcular monto de un alquiler', () => {
+    it('Deberia calcular monto de un alquiler',() => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
         alquiler.clickAccionCalcularMontoAlquiler();
         alquiler.clickLinkPagarAlquiler();
-
         expect(0).toBe(alquiler.calcularMonto());
-
     });
-
 });

@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Producto } from '../model/producto';
 
-
 @Injectable()
 export class ProductoService {
 
@@ -13,16 +12,14 @@ export class ProductoService {
   private apiServerUrl = environment.endpoint;
 
   constructor(private http: HttpClient) {
-    var d = new Date();
-    var curr_date = d.getDate();
-    var curr_month = d.getMonth() + 1; //Months are zero based
-    var curr_year = d.getFullYear();
-    var curr_hour = d.getHours();
-    var curr_min = d.getMinutes();
-    var curr_sec = d.getSeconds();
-    this.horaYFechaFormato = curr_year + (curr_month>9?"-":"-0") + curr_month + "-" + curr_date + (curr_hour>9?"T":"T0") +
-                                    curr_hour + (curr_min>9?":":":0") + curr_min   + (curr_sec>9?":":":0") + curr_sec;
-
+    const d = new Date();
+    const currDate = d.getDate();
+    const currMonth = d.getMonth() + 1; //Months are zero based
+    const currYear = d.getFullYear();
+    const currHour = d.getHours();
+    const currMin = d.getMinutes();
+    const currSec = d.getSeconds();
+    this.horaYFechaFormato = currYear + (currMonth > 9 ? "-" : "-0") + currMonth + "-" + currDate + (currHour > 9 ? "T" : "T0") + currHour + (currMin > 9 ? ":" : ":0") + currMin + (currSec > 9 ? ":" : ":0") + currSec;
   }
 
   public consultar(): Observable<Producto[]> {
@@ -42,15 +39,15 @@ export class ProductoService {
   }
 
   public pagar(cedula: number): Observable<number> {
-    return this.http.post<number>(`${this.apiServerUrl}/usuario/monto?cedula=${cedula}&fechaYHoraEntrega=${this.horaYFechaFormato}`,null);
+    return this.http.post<number>(`${this.apiServerUrl}/usuario/monto?cedula=${cedula}&fechaYHoraEntrega=${this.horaYFechaFormato}`, null);
   }
 
   public actualizarDatosDePago(cedula: number): Observable<RestResponse> {
-   return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`,null);
+   return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`, null);
   }
 
-  public registrarAlquilerExistente(nationalId: number, idJetSki: string, rentTime: number, fechaYHoraFormato: string): Observable<RestResponse> {
-    return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquiler?cedula=${nationalId}&idJetSki=${idJetSki}&tiempoRenta=${rentTime}&fechaYHoraRenta=${fechaYHoraFormato}`,null);
+  public registrarAlquilerExistente() {
+    return this.http.post<RestResponse>(`${this.apiServerUrl}
+    /usuarios-registrados/alquiler?cedula=$`, null);
   }
-
 }

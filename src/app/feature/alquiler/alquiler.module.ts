@@ -6,8 +6,7 @@ import { CrearUsuarioAlquilerComponent } from './components/crear-usuario-alquil
 import { CrearAlquilerComponent } from './components/crear-alquiler/crear-alquiler.component';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
-
-import { AlquilerRoutingModule } from "./alquiler-routing.module";
+import { AlquilerRoutingModule } from './alquiler-routing.module';
 import { FormsModule } from '@angular/forms';
 
 

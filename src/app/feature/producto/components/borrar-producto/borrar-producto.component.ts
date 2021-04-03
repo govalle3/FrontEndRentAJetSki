@@ -8,46 +8,32 @@ import { ProductoService } from '@producto/shared/service/producto.service';
   styleUrls: ['./borrar-producto.component.css']
 })
 
-
-
 export class BorrarProductoComponent implements OnInit {
   public total: number;
   public respuesta: string;
   public cedula: number;
 
-  
   constructor(protected productoServices: ProductoService, protected router: Router) {
 
-    if(sessionStorage.getItem("cedula")){
-      this.cedula = JSON.parse(sessionStorage.getItem("cedula"));
+    if(sessionStorage.getItem('cedula')) {
+      this.cedula = JSON.parse(sessionStorage.getItem('cedula'));
       this.montoAPagar(this.cedula);
-    }else{
+    } else {
       this.cedula = this.cedula;
     }
-  
    }
-
   ngOnInit() {
-    
-    
   }
-
-  /**
-   * montoAPagar
-   */
   public montoAPagar(cedula: number) {
     this.productoServices.pagar(cedula).subscribe(res => {
       this.total = res;
       console.log(this.total);
-      
-  });}
-
-    /**
-   * actualizarDatosPagado
-   */
-     public pagar(cedula: number) {
+});
+}
+public pagar(cedula: number) {
       this.productoServices.actualizarDatosDePago(cedula).subscribe(res => {
-        this.respuesta = res + '';
-        this.router.navigate(['/producto/listar']);
-    });}  
+      this.respuesta = res + '';
+      this.router.navigate(['/producto/listar']);
+});
+}  
 }

@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './pagar-alquiler.component.html',
   styleUrls: ['./pagar-alquiler.component.css']
 })
+
 export class PagarAlquilerComponent implements OnInit {
+
   public total: number;
   public respuesta: string;
   public cedula: number;
@@ -17,32 +19,25 @@ export class PagarAlquilerComponent implements OnInit {
     if(sessionStorage.getItem("cedula")){
       this.cedula = JSON.parse(sessionStorage.getItem("cedula"));
       this.traerDatosParaPago(this.cedula);
-    }else{
+    } else {
       this.cedula = this.cedula;
     }
-  
-   }
+ }
 
-  ngOnInit(): void {
+ngOnInit(): void {
+
   }
 
-    /**
-   * traerDatosParaPago
-   */
-     public traerDatosParaPago(cedula: number) {
-      this.alquilerUsuarioService.pagar(cedula).subscribe(res => {
-        this.total = res;
-        console.log(this.total);
-        
-    });}
-
-        /**
-        * pagar
-        */
-         public pagar(cedula: number) {
-          this.alquilerUsuarioService.actualizarDatosDePago(cedula).subscribe(res => {
-            this.respuesta = res + '';
-            this.router.navigate(['/alquiler/listar-alquiler']);
-        });}  
-
+  public traerDatosParaPago(cedula: number) {
+    this.alquilerUsuarioService.pagar(cedula).subscribe(res => {
+    this.total = res;
+    console.log(this.total); 
+  });
 }
+
+  public pagar(cedula: number) {
+    this.alquilerUsuarioService.actualizarDatosDePago(cedula).subscribe(res => {
+    this.respuesta = res + '';
+    this.router.navigate(['/alquiler/listar-alquiler']);
+  });
+}  }

@@ -7,7 +7,6 @@ import { CrearAlquilerComponent } from './components/crear-alquiler/crear-alquil
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-
 const routes: Routes = 
 [
     {
@@ -16,19 +15,19 @@ const routes: Routes =
         children:
         [
             {
-                path:'crear-alquiler',
+                path: 'crear-alquiler',
                 component: CrearAlquilerComponent
             },
             {
-                path:'crear-usuario-alquiler',
+                path: 'crear-usuario-alquiler', 
                 component: CrearUsuarioAlquilerComponent
             },
             {
-                path:'listar-alquiler',
+                path: 'listar-alquiler',
                 component: ListarAlquilerComponent
             },
             {
-                path:'pagar-alquiler',
+                path: 'pagar-alquiler',
                 component: PagarAlquilerComponent
             }
         ]
@@ -40,4 +39,6 @@ const routes: Routes =
     exports: [RouterModule],
 
 })
-export class AlquilerRoutingModule {}
+export class AlquilerRoutingModule {
+    
+}
