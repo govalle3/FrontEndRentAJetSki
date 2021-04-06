@@ -4,4 +4,5 @@ export class Alquiler {
     public tiempoRenta: Int8Array;
     public fechaYHoraRenta: string;
 
+
 }

@@ -85,7 +85,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [],
+            "styles": [
+              "styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
             "scripts": []
           }
         },
@@ -114,7 +117,7 @@
             }
           }
         }
-      }
+      } 
     }
   },
   "defaultProject": "app-base",

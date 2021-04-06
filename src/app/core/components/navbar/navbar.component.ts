@@ -14,8 +14,8 @@ import { MenuItem } from '@core/modelo/menu-item';
 
   nav a {
     color: #8f8f8f;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 300;
     line-height: 48px;
     margin-right: 20px;
     text-decoration: none;

@@ -3,11 +3,12 @@ import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 
 describe('workspace-project Alquiler', () => {
+
     let page: AppPage;
     let navBar: NavbarPage;
     let alquiler: AlquilerPage;
 
-    beforeEach(()=> {
+    beforeEach( () => {
         page = new AppPage();
         navBar = new NavbarPage();
         alquiler = new AlquilerPage();
@@ -16,7 +17,7 @@ describe('workspace-project Alquiler', () => {
     it('Deberia crear un usario y un alquiler', () => {
         const CEDULA = '1098';
         const NOMBRE = 'German ovalle';
-        const FECHANACIMIENTO = "1990-02-26";
+        const FECHANACIMIENTO = '1990-02-26';
         const IDJETSKI = 'BC001';
         const TIEMPORENTA = '10';
         page.navigateTo();
@@ -30,7 +31,7 @@ describe('workspace-project Alquiler', () => {
         alquiler.clickBotonCrearUsuarioAlquiler();
     });
 
-    it('Deberia crear un alquiler',()=>{
+    it('Deberia crear un alquiler', () => {
         const CEDULA = '1098';
         const IDJETSKI = 'BC002';
         const TIEMPORENTA = '15';
@@ -43,18 +44,19 @@ describe('workspace-project Alquiler', () => {
         alquiler.clickBotonCrearAlquiler();
 	});
 
-    it('Deberia listar productos',() => {
+    it('Deberia listar productos' , () => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
         alquiler.contarAlquileres();
         expect(1).toBe(alquiler.contarAlquileres());
     });
 
-    it('Deberia calcular monto de un alquiler',() => {
+    it('Deberia calcular monto y pago de un alquiler' , () => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
-        alquiler.clickAccionCalcularMontoAlquiler();
+        alquiler.clickAccionCalcularMontoAlquiler(); 
         alquiler.clickLinkPagarAlquiler();
         expect(0).toBe(alquiler.calcularMonto());
     });
+
 });

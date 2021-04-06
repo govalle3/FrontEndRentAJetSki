@@ -6,7 +6,7 @@ const { SpecReporter } = require('jasmine-spec-reporter'); // paquete instalado 
 var HtmlReporter = require('protractor-beautiful-reporter');
 
 /**
- * @type { import("protractor").Config }
+ * @type { import('protractor').Config }
  */
 exports.config = {
   allScriptsTimeout: 11000,

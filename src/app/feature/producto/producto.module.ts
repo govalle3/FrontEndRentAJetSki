@@ -7,8 +7,8 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
-import { FormsModule } from "@angular/forms";
-import { AlquilerProductoComponent } from "./components/alquiler-producto/alquiler-producto.component";
+import { FormsModule } from '@angular/forms';
+import { AlquilerProductoComponent } from './components/alquiler-producto/alquiler-producto.component';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { AlquilerProductoComponent } from "./components/alquiler-producto/alquil
     ProductoComponent,
     AlquilerProductoComponent
   ],
-  
+
   imports: [
     ProductoRoutingModule,
     SharedModule,

@@ -11,7 +11,7 @@ export class ManejadorError implements ErrorHandler {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
   }
-//errores A NIVEL GENERAL DE LA APP
+// errores A NIVEL GENERAL DE LA APP
   private mensajePorDefecto(error) {
     if (error instanceof HttpErrorResponse) {
       if (!navigator.onLine) {

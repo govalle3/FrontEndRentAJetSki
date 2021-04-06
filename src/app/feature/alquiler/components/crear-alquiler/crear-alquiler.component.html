@@ -1,21 +1,20 @@
 
 <h3>Crear alquiler usuarios registrados</h3>
 <h6>Inserte una cedula para crear un alquiler</h6>
-<form class="form-horizontal main-form">
+<form class='form-horizontal main-form'>
 
-  <div class="form-group">
-    <label class="control-label col-sm-3">Cédula:</label>
-    <div class="col-sm-5">
-      <input type="number" id="cedula" [(ngModel)]="alquiler.cedula" name="cedula" placeholder="Ingrese su cédula"
-        class="form-control">
+  <div class='form-group'>
+    <label class='control-label col-sm-3'>Cédula:</label>
+    <div class='col-sm-5'>
+      <input type='number' id='cedula' [(ngModel)]='alquiler.cedula' name='cedula' placeholder='Ingrese su cédula'
+        class='form-control'>
     </div>
   </div>
 
-  <div class="form-group">
-    <label class="control-label col-sm-3" for="idJetSki">Motos Acuáticas:</label>
-  <div class="col-sm-5">
-      <select class="form-select" id="idJetSki" [(ngModel)]="alquiler.idJetSki" name="idJetSki">
-        <option selected>Seleccione una moto</option>
+  <div class='form-group'>
+    <label class='control-label col-sm-3' for='idJetSki'>Motos Acuáticas:</label>
+  <div class='col-sm-5'>
+      <select class='form-select' id='idJetSki' [(ngModel)]='alquiler.idJetSki' name='idJetSki'>
         <option>BC001</option>
         <option>BC002</option>
         <option>BC003</option>
@@ -23,17 +22,17 @@
   </div>
 </div>
 
-<div class="form-group">
-  <label class="control-label col-sm-3" for="tiempoRenta">Tiempo alquiler:</label>
-<div class="col-sm-5">
-  <input type="number" id="tiempoRenta" [(ngModel)]="alquiler.tiempoRenta" name="tiempoRenta" placeholder="Ingrese un tiempo en minutos"
-    class="form-control">
+<div class='form-group'>
+  <label class='control-label col-sm-3' for='tiempoRenta'>Tiempo alquiler:</label>
+<div class='col-sm-5'>
+  <input type='number' id='tiempoRenta' [(ngModel)]='alquiler.tiempoRenta' name='tiempoRenta' placeholder='Ingrese un tiempo en minutos'
+    class='form-control'>
 </div>
 </div>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" id="linkBotonCrearAlquiler" (click)="crearAlquiler()" class="btn btn-default btn-save">Alquilar</button>
+  <div class='form-group'>
+    <div class='col-sm-offset-2 col-sm-10'>
+      <button type='submit' id='linkBotonCrearAlquiler' (click)='crearAlquiler()' class='btn btn-primary active'>Alquilar</button>
     </div>
   </div>
 

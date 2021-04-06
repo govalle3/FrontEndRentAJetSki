@@ -12,20 +12,20 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    CrearAlquilerComponent,
-    CrearUsuarioAlquilerComponent,
-    ListarAlquilerComponent,
-    PagarAlquilerComponent,
-    AlquilerComponent
+	declarations: [
+		CrearAlquilerComponent,
+		CrearUsuarioAlquilerComponent,
+		ListarAlquilerComponent,
+		PagarAlquilerComponent,
+		AlquilerComponent
 
-  ],
-  
-  imports: [
-    AlquilerRoutingModule,
-    SharedModule,
-    FormsModule,
-  ],
-  providers: [AlquilerUsuarioService]
+	],
+
+	imports: [
+		AlquilerRoutingModule,
+		SharedModule,
+		FormsModule,
+	],
+	providers: [AlquilerUsuarioService]
 })
 export class AlquilerModule { }

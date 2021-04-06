@@ -20,8 +20,7 @@ import { Component, OnInit } from '@angular/core';
   }
 
   .more {
-    background: url("/assets/svg/more.svg");
-    float: right;
+     float: right;
     height: 24px;
     margin-top: 12px;
     width: 24px;

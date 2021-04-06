@@ -1,31 +1,31 @@
 <h6>Listado de alquileres</h6>
-<div class="form-horizontal main-form">
-  <label class="control-label col-sm-5" for="tiposDeLista">Seleccione un tipo de lista:</label>
-<div class="col-sm-4">
-    <select class="form-select" [(ngModel)]="opcionSeleccionada" id="tiposDeLista" (ngModelChange)="onChange($event)"name="tiposDeLista">
-      <option *ngFor="let item of lista">{{item}}</option>
+<div class='form-horizontal main-form'>
+  <label class='control-label col-sm-5' for='tiposDeLista'>Seleccione un tipo de lista:</label>
+<div class='col-sm-4'>
+    <select class='form-select' [(ngModel)]='opcionSeleccionada' id='tiposDeLista' (ngModelChange)='onChange($event)'name='tiposDeLista'>
+      <option *ngFor='let item of lista'>{{item}}</option>
     </select>
 </div>
 </div>
-<div id="alquileres">
-  <div class="clear">
-    <table class="table" id="alquileres">
+<div id='alquileres'>
+  <div class='clear'>
+    <table class='table table-bordered' id='alquileres'>
         <thead>
           <tr>
-            <th scope="col">Cedula</th>
-            <th scope="col">Jet Ski</th>
-            <th scope="col">Tiempo Rentado</th>
-            <th scope="col">Fecha y hora renta</th>
+            <th scope='col'>Cedula</th>
+            <th scope='col'>Jet Ski</th>
+            <th scope='col'>Tiempo Rentado</th>
+            <th scope='col'>Fecha y hora renta</th>
             <th>Pagar</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of listaProductos">
+          <tr *ngFor='let item of listaProductos'>
             <td>{{item.cedula}}</td>
             <td>{{item.idJetSki}}</td>
             <td>{{item.tiempoRenta}}</td>
             <td>{{item.fechaYHoraRenta}}</td>
-            <td id="AccionMontoBoton"><img src="./assets/favicon/Pay.png" id="AccionMontoBoton" class="payIcon" (click)="pagar(item.cedula)"></td>
+            <td *ngIf="OcultarPago"><img src='./assets/favicon/Pay.png' id='AccionMontoBoton'  class='payIcon' (click)='pagar(item.cedula)'></td>
           </tr>
         </tbody>
       </table>
