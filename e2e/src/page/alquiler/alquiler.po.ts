@@ -2,19 +2,19 @@ import { by, element } from 'protractor';
 
 export class AlquilerPage {
 
-	private linkCrearAlquiler = element(by.id('linkCrearAlquiler'));
-	private linkCrearUsuarioAlquiler = element(by.id('linkCrearUsuarioAlquiler'));
-	private linkListarAlquiler = element(by.id('linkListarAlquiler'));
-	private linkPagarAlquiler = element(by.id('linkPagarAlquiler'));
-	private linkBotonCrearUsuarioAlquiler = element(by.id('linkBotonCrearUsuarioAlquiler'));
-	private linkBotonCrearAlquiler = element(by.id('linkBotonCrearAlquiler'));
-	private linkBotonPagarAlquiler = element(by.id('linkBotonPagarAlquiler'));
-	private inputCedula = element(by.id('cedula'));
-	private inputNombre = element(by.id('nombre'));
-	private inputFechaNacimiento = element(by.id('fechaNacido'));
+    private linkCrearAlquiler = element(by.id('linkCrearAlquiler'));
+    private linkCrearUsuarioAlquiler = element(by.id('linkCrearUsuarioAlquiler'));
+    private linkListarAlquiler = element(by.id('linkListarAlquiler'));
+    private linkPagarAlquiler = element(by.id('linkPagarAlquiler'));
+    private linkBotonCrearUsuarioAlquiler = element(by.id('linkBotonCrearUsuarioAlquiler'));
+    private linkBotonCrearAlquiler = element(by.id('linkBotonCrearAlquiler'));
+    private linkBotonPagarAlquiler = element(by.id('linkBotonPagarAlquiler'));
+    private inputCedula = element(by.id('cedula'));
+    private inputNombre = element(by.id('nombre'));
+    private inputFechaNacimiento = element(by.id('fechaNacido'));
 	private inputTiempoRenta = element(by.id('tiempoRenta'));
 	private inputIdJetSki = element(by.id('idJetSki'));
-	private linkAccionCalcularMontoAlquiler = element(by.id('AccionMontoBoton'));
+	private linkAccionCalcularMontoAlquiler = element.all(by.id('AccionMontoBoton')).first();
 	private listaAlquileres = element(by.id('alquileres'));
 	private montaAPagar = element(by.id('total'));
 

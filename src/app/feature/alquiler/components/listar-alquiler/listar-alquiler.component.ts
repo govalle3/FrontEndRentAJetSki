@@ -31,23 +31,23 @@ export class ListarAlquilerComponent implements OnInit {
 
 public pagar(cedula: number): void {
 
-		sessionStorage.setItem('cedula',JSON.stringify(cedula));
+		sessionStorage.setItem('cedula', JSON.stringify(cedula));
 		this.router.navigate(['/alquiler/pagar-alquiler']);
 
 }
 
 onChange(e) {
 
-	if(this.opcionSeleccionada === this.lista[0]) {
+	if (this.opcionSeleccionada === this.lista[0]) {
 		console.log(e);
 		this.alquilerUSuarioService.consultarPagados().subscribe(res => {
 		this.listaProductos = res;
 		this.OcultarPago = false;
-		this.router.navigate(['/alquiler/listar-alquiler']);    
+		this.router.navigate(['/alquiler/listar-alquiler']);
 	});
 }
 
-	if(this.opcionSeleccionada === this.lista[1]) {
+	if (this.opcionSeleccionada === this.lista[1]) {
 		console.log(e);
 		this.alquilerUSuarioService.consultarPorPagar().subscribe(res => {
 		this.listaProductos = res;
@@ -56,7 +56,7 @@ onChange(e) {
 	});
 }
 
-	if(this.opcionSeleccionada === this.lista[2]) {
+	if (this.opcionSeleccionada === this.lista[2]) {
 		console.log(e);
 		this.alquilerUSuarioService.consultar().subscribe(res => {
 		this.listaProductos = res;

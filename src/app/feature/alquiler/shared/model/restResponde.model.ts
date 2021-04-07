@@ -1,4 +1,4 @@
 export class RestResponse {
-    public responseCode: string;
+    public responseCode: number;
     public message: string;
 }

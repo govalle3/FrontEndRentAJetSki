@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AlquilerUsuarioService } from './../../shared/service/alquiler-usuario.service';
 import { UsuarioAlquiler } from './../../shared/model/usuario-alquiler';
+import { OK } from './../../../producto/shared/model/httpstatus';
 
 @Component({
 
@@ -18,11 +19,11 @@ export class CrearUsuarioAlquilerComponent implements OnInit {
 
 	public usuarioAlquiler: UsuarioAlquiler;
 
-	public message: any;
+	public mensaje: any;
 
 	public horaYFecha: string;
 
-	public esValido: boolean = true;
+	public esValido = true;
 
 
 	constructor(private alquilerUsuarioSerivce: AlquilerUsuarioService, private router: Router) {
@@ -46,17 +47,22 @@ export class CrearUsuarioAlquilerComponent implements OnInit {
 		const currSec = d.getSeconds();
 		this.usuarioAlquiler.fechaYHoraRenta = currYear + (currMonth > 9 ? '-' : '-0') + currMonth +
 		(currDate > 9 ? '-' : '-0') + currDate + (currHour > 9 ? ' ' : ' 0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
-		
-		this.alquilerUsuarioSerivce.crearUsuarioAlquiler(this.usuarioAlquiler).subscribe(res => {
-			if(res.responseCode = '500') {
 
-				this.message = res.message;
-				this.esValido = true;
+		this.alquilerUsuarioSerivce.crearUsuarioAlquiler(this.usuarioAlquiler).subscribe(res => {
+			if (res.responseCode == OK) {
+
+				this.esValido = false;
+				this.mensaje = res.message;
+
+			} else {
+				this.router.navigate(['/alquiler/listar-alquiler']);
+				this.mensaje = res.message;
 
 			}
-	    this.message = res;
-		console.log(this.message);
-		this.router.navigate(['/alquiler/listar-alquiler']);
+	    }, error => {
+			this.esValido = false;
+		 this.mensaje = error.error.message;
+
 		});
 	}
 }

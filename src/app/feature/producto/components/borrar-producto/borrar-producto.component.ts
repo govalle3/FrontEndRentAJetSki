@@ -15,7 +15,7 @@ export class BorrarProductoComponent implements OnInit {
 
   constructor(protected productoServices: ProductoService, protected router: Router) {
 
-    if(sessionStorage.getItem('cedula')) {
+    if (sessionStorage.getItem('cedula')) {
       this.cedula = JSON.parse(sessionStorage.getItem('cedula'));
       this.montoAPagar(this.cedula);
     } else {
@@ -35,5 +35,5 @@ public pagar(cedula: number) {
       this.respuesta = res + '';
       this.router.navigate(['/producto/listar']);
 });
-}  
+}
 }

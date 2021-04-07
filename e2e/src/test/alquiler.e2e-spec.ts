@@ -31,19 +31,6 @@ describe('workspace-project Alquiler', () => {
         alquiler.clickBotonCrearUsuarioAlquiler();
     });
 
-    it('Deberia crear un alquiler', () => {
-        const CEDULA = '1098';
-        const IDJETSKI = 'BC002';
-        const TIEMPORENTA = '15';
-        page.navigateTo();
-        navBar.clickLinkAlquileres();
-        alquiler.clickLinkCrearAlquiler();
-        alquiler.ingresarCedula(CEDULA);
-        alquiler.ingresarIdJetSki(IDJETSKI);
-        alquiler.ingresarTiempoRenta(TIEMPORENTA);
-        alquiler.clickBotonCrearAlquiler();
-	});
-
     it('Deberia listar productos' , () => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
@@ -51,12 +38,14 @@ describe('workspace-project Alquiler', () => {
         expect(1).toBe(alquiler.contarAlquileres());
     });
 
-    it('Deberia calcular monto y pago de un alquiler' , () => {
+
+	it('Deberia calcular monto y pago de un alquiler', () => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
-        alquiler.clickAccionCalcularMontoAlquiler(); 
-        alquiler.clickLinkPagarAlquiler();
-        expect(0).toBe(alquiler.calcularMonto());
+        alquiler.clickAccionCalcularMontoAlquiler();
+        alquiler.clickBotonPagarAlquiler();
     });
+
+    
 
 });

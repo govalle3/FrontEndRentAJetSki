@@ -16,6 +16,11 @@
       "app",
       "camelCase"
     ],
+    "indent": {
+      "options": [
+        "spaces"
+      ]
+    },
     "component-selector": [
       true,
       "element",

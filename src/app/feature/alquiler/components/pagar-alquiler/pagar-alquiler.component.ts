@@ -16,7 +16,7 @@ export class PagarAlquilerComponent implements OnInit {
 
 	constructor(protected alquilerUsuarioService: AlquilerUsuarioService, protected router: Router) {
 
-		if(sessionStorage.getItem('cedula')){
+		if (sessionStorage.getItem('cedula')) {
 			this.cedula = JSON.parse(sessionStorage.getItem('cedula'));
 			this.traerDatosParaPago(this.cedula);
 		} else {
@@ -31,7 +31,7 @@ ngOnInit(): void {
 	public traerDatosParaPago(cedula: number) {
 		this.alquilerUsuarioService.pagar(cedula).subscribe(res => {
 		this.total = res;
-		console.log(this.total); 
+		console.log(this.total);
 	});
 }
 
@@ -40,5 +40,5 @@ ngOnInit(): void {
 		this.respuesta = res + '';
 		this.router.navigate(['/alquiler/listar-alquiler']);
 	});
-}  
+}
 }

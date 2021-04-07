@@ -18,20 +18,20 @@ export class AlquilerProductoComponent implements OnInit {
   constructor(protected productoServices: ProductoService, protected router: Router) {
     const d = new Date();
     const currDate = d.getDate();
-    const currMonth = d.getMonth() + 1; //Months are zero based
+    const currMonth = d.getMonth() + 1; // Months are zero based
     const currYear = d.getFullYear();
     const currHour = d.getHours();
     const currMin = d.getMinutes();
     const currSec = d.getSeconds();
-    this.horaYFechaFormato = currYear + (currMonth > 9 ? '-':'-0') + currMonth + '-' + currDate + (currHour > 9 ? 'T':'T0') + currHour + (currMin > 9 ? ':':':0') + currMin + (currSec> 9 ? ':':':0') + currSec;
+    this.horaYFechaFormato = currYear + (currMonth > 9 ? '-' : '-0') + currMonth + '-' + currDate + (currHour > 9 ? 'T' : 'T0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
    }
 
   ngOnInit(): void {
   }
-  
-  public crearAlquiler(){
+
+  public crearAlquiler() {
     this.productoServices.registrarAlquilerExistente().subscribe(res => {
       this.respuesta = res + '';
       this.router.navigate(['/producto/listar']);
-  });}
+  }); }
 }

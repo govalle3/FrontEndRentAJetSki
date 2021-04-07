@@ -22,15 +22,15 @@ export class CrearProductoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public crear(): void { 
+  public crear(): void {
     const d = new Date();
     const currDate = d.getDate();
-    const currMonth = d.getMonth() + 1; //Months are zero based
+    const currMonth = d.getMonth() + 1; // Months are zero based
     const currYear = d.getFullYear();
     const currHour = d.getHours();
     const currMin = d.getMinutes();
     const currSec = d.getSeconds();
-    this.producto.fechaYHoraRenta = currYear + (currMonth > 9 ? '-':'-0') + currMonth + '-' + currDate + (currHour > 9 ? ' ':' 0') + currHour + (currMin > 9 ? ':':':0') + currMin + (currSec > 9 ? ':':':0') + currSec;
+    this.producto.fechaYHoraRenta = currYear + (currMonth > 9 ? '-' : '-0') + currMonth + '-' + currDate + (currHour > 9 ? ' ' : ' 0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
     console.log(this.producto.fechaYHoraRenta);
     this.productoServices.guardar(this.producto).subscribe(res => {
         this.message = res + '';

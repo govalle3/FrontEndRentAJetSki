@@ -31,7 +31,7 @@ export class AlquilerUsuarioService {
 
 	public registrarAlquilerUsuarioExistente(alquiler: Alquiler): Observable<RestResponse> {
 
-		return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquiler`,alquiler);
+		return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios-registrados/alquiler`, alquiler);
 	}
 
 	public consultar(): Observable<Alquiler[]> {
@@ -54,13 +54,13 @@ export class AlquilerUsuarioService {
 
 	public pagar(cedula: number): Observable<number> {
 
-		return this.http.post<number>(`${this.apiServerUrl}/usuario/monto?cedula=${cedula}&fechaYHoraEntrega=${this.horaYFecha}`,null);
+		return this.http.post<number>(`${this.apiServerUrl}/usuario/monto?cedula=${cedula}&fechaYHoraEntrega=${this.horaYFecha}`, null);
 
 	}
 
 	public actualizarDatosDePago(cedula: number): Observable<RestResponse> {
 
-	 return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`,null);
-	 
+	 return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`, null);
+
 	}
 }
