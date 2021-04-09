@@ -8,13 +8,15 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { AlquilerUsuarioNuevoComponent } from './feature/feature-alquiler-usuario-nuevo/alquiler-usuario-nuevo/alquiler-usuario-nuevo.component';
 
 
 @NgModule({
 
   declarations: [
     AppComponent,
-    HomeComponent    
+    HomeComponent,
+    AlquilerUsuarioNuevoComponent    
   ],
 
   imports: [
