@@ -1,10 +1,8 @@
-
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { AlquilerUsuarioService } from './../../shared/service/alquiler-usuario.service';
 import { UsuarioAlquiler } from './../../shared/model/usuario-alquiler';
-import { OK } from './../../../producto/shared/model/httpstatus';
+import { Router } from '@angular/router';
 
 @Component({
 
@@ -19,24 +17,19 @@ export class CrearUsuarioAlquilerComponent implements OnInit {
 
 	public usuarioAlquiler: UsuarioAlquiler;
 
-	public mensaje: any;
-
 	public horaYFecha: string;
 
-	public esValido = true;
-
-
-	constructor(private alquilerUsuarioSerivce: AlquilerUsuarioService, private router: Router) {
+	constructor(private alquilerUsuarioSerivce: AlquilerUsuarioService, protected router: Router) {
 
 		this.usuarioAlquiler = new UsuarioAlquiler();
 
 	 }
 
-	ngOnInit(): void {
+	ngOnInit() {
 
 	}
 
-	public crearUsuarioAlquiler(): void {
+	public crearUsuarioAlquiler() {
 
 		const d = new Date();
 		const currDate = d.getDate();
@@ -48,21 +41,6 @@ export class CrearUsuarioAlquilerComponent implements OnInit {
 		this.usuarioAlquiler.fechaYHoraRenta = currYear + (currMonth > 9 ? '-' : '-0') + currMonth +
 		(currDate > 9 ? '-' : '-0') + currDate + (currHour > 9 ? ' ' : ' 0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
 
-		this.alquilerUsuarioSerivce.crearUsuarioAlquiler(this.usuarioAlquiler).subscribe(res => {
-			if (res.responseCode == OK) {
-
-				this.esValido = false;
-				this.mensaje = res.message;
-
-			} else {
-				this.router.navigate(['/alquiler/listar-alquiler']);
-				this.mensaje = res.message;
-
-			}
-	    }, error => {
-			this.esValido = false;
-		 this.mensaje = error.error.message;
-
-		});
+		this.alquilerUsuarioSerivce.crearUsuarioAlquiler(this.usuarioAlquiler);
 	}
 }

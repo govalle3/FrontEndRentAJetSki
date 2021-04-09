@@ -23,8 +23,9 @@ export class ListarAlquilerComponent implements OnInit {
 
 	ngOnInit(): void {
 
-		this.alquilerUSuarioService.consultar().subscribe(res => {
+		this.alquilerUSuarioService.consultarPorPagar().subscribe(res => {
 			this.listaProductos = res;
+			this.OcultarPago = true;
 			this.router.navigate(['/alquiler/listar-alquiler']);
 	});
 }

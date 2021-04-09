@@ -2,17 +2,25 @@ import { Alquiler } from './../model/alquiler';
 import { environment } from './../../../../../environments/environment';
 import { UsuarioAlquiler } from './../model/usuario-alquiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { RestResponse } from './../../shared/model/restResponde.model';
+import { RestResponse } from './../../shared/model/restResponse.model';
+import { HttpService } from '@core-service/http.service';
+import { Router } from '@angular/router';
+
+
 
 @Injectable()
+
 export class AlquilerUsuarioService {
+
+	
 	public horaYFecha: string;
 	public apiServerUrl = environment.endpoint;
-
-	constructor(private http: HttpClient) {
-
+	public mensajeError: string;
+	
+	constructor(private http: HttpClient, protected http2: HttpService, protected router: Router) {
+		
 		const d = new Date();
 		const currDate = d.getDate();
 		const currMonth = d.getMonth() + 1;
@@ -23,9 +31,11 @@ export class AlquilerUsuarioService {
 		this.horaYFecha = currYear + (currMonth > 9 ? '-' : '-0') + currMonth + (currDate > 9 ? '-' : '-0') + currDate + (currHour > 9 ? 'T' : 'T0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
 	}
 
-	 public crearUsuarioAlquiler(usuarioAlquiler: UsuarioAlquiler): Observable<RestResponse> {
-
-		return this.http.post<RestResponse>(`${this.apiServerUrl}/usuarios/alquiler`, usuarioAlquiler);
+	public crearUsuarioAlquiler(usuarioAlquiler: UsuarioAlquiler)  {
+		const subject = new BehaviorSubject(this.mensajeError);
+		this.http2.doPost<UsuarioAlquiler, any>(`${this.apiServerUrl}/usuarios/alquiler`, usuarioAlquiler).subscribe(res => {
+			subject.subscribe(res);
+		});
 
 	}
 
@@ -43,7 +53,6 @@ export class AlquilerUsuarioService {
 	public consultarPorPagar(): Observable<Alquiler[]> {
 
 		return this.http.get<Alquiler[]>(`${this.apiServerUrl}/alquiler/por-pago`);
-
 	}
 
 	public consultarPagados(): Observable<Alquiler[]> {
@@ -63,4 +72,5 @@ export class AlquilerUsuarioService {
 	 return this.http.put<RestResponse>(`${this.apiServerUrl}/usuario/pago?cedula=${cedula}`, null);
 
 	}
+	
 }

@@ -2,7 +2,7 @@
 <div class='form-horizontal main-form'>
   <label class='control-label col-sm-5' for='tiposDeLista'>Seleccione un tipo de lista:</label>
 <div class='col-sm-4'>
-    <select class='form-select' [(ngModel)]='opcionSeleccionada' id='tiposDeLista' (ngModelChange)='onChange($event)'name='tiposDeLista'>
+    <select class='form-select' [(ngModel)]='opcionSeleccionada' id='tiposDeLista' (ngModelChange)='onChange($event)' name='tiposDeLista'>
       <option *ngFor='let item of lista'>{{item}}</option>
     </select>
 </div>

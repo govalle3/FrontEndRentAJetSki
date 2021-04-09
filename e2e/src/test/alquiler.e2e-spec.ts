@@ -17,7 +17,7 @@ describe('workspace-project Alquiler', () => {
     it('Deberia crear un usario y un alquiler', () => {
         const CEDULA = '1098';
         const NOMBRE = 'German ovalle';
-        const FECHANACIMIENTO = '1990-02-26';
+        const FECHANACIMIENTO = '02-26-1990';
         const IDJETSKI = 'BC001';
         const TIEMPORENTA = '10';
         page.navigateTo();
@@ -31,21 +31,20 @@ describe('workspace-project Alquiler', () => {
         alquiler.clickBotonCrearUsuarioAlquiler();
     });
 
-    it('Deberia listar productos' , () => {
+    it('Deberia listar alquileres no pagados' , () => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
+        alquiler.clickLinkListarAlquiler();
         alquiler.contarAlquileres();
         expect(1).toBe(alquiler.contarAlquileres());
     });
 
-
-	it('Deberia calcular monto y pago de un alquiler', () => {
+    it('Deberia calcular monto y pagar un alquiler' , () => {
         page.navigateTo();
         navBar.clickLinkAlquileres();
+        alquiler.clickLinkListarAlquiler();
         alquiler.clickAccionCalcularMontoAlquiler();
         alquiler.clickBotonPagarAlquiler();
     });
-
-    
 
 });

@@ -5,7 +5,7 @@ export class AlquilerPage {
     private linkCrearAlquiler = element(by.id('linkCrearAlquiler'));
     private linkCrearUsuarioAlquiler = element(by.id('linkCrearUsuarioAlquiler'));
     private linkListarAlquiler = element(by.id('linkListarAlquiler'));
-    private linkPagarAlquiler = element(by.id('linkPagarAlquiler'));
+    private linkPagarAlquiler = element(by.id('linkBotonPagarAlquiler'));
     private linkBotonCrearUsuarioAlquiler = element(by.id('linkBotonCrearUsuarioAlquiler'));
     private linkBotonCrearAlquiler = element(by.id('linkBotonCrearAlquiler'));
     private linkBotonPagarAlquiler = element(by.id('linkBotonPagarAlquiler'));

@@ -1,5 +1,3 @@
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,23 +8,21 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-import { ToastNoAnimationModule} from 'ngx-toastr';
-
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent    
   ],
 
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     ProductoModule,
     CoreModule,
-    FormsModule,
-    ToastNoAnimationModule.forRoot()
+    FormsModule
   ],
 
   providers: [CookieService],

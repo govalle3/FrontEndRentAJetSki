@@ -3,22 +3,26 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 
+
 @Injectable()
 export class ManejadorError implements ErrorHandler {
   constructor() {}
 
+  
   handleError(error: string | Error): void {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
   }
 // errores A NIVEL GENERAL DE LA APP
   private mensajePorDefecto(error) {
+
     if (error instanceof HttpErrorResponse) {
       if (!navigator.onLine) {
         return HTTP_ERRORES_CODIGO.NO_HAY_INTERNET;
       }
       if (error.hasOwnProperty('status') && !error.error.hasOwnProperty('mensaje')) {
-        return this.obtenerErrorHttpCode(error.status);
+
+        return error.error.message;
       }
     }
     return error;

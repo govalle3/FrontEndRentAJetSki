@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlquilerUsuarioService } from './../../shared/service/alquiler-usuario.service';
 import { Router } from '@angular/router';
 import { Alquiler } from './../../shared/model/alquiler';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'app-crear-alquiler',
@@ -11,10 +10,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class CrearAlquilerComponent implements OnInit {
+	
 	public respuesta: any;
 	public alquiler: Alquiler;
 
-	constructor(protected alquilerUsuarioService: AlquilerUsuarioService, protected router: Router, protected toast: ToastrService) {
+	constructor(protected alquilerUsuarioService: AlquilerUsuarioService, protected router: Router) {
 		this.alquiler = new Alquiler();
 		const d = new Date();
 		const currDate = d.getDate();
@@ -34,7 +34,7 @@ export class CrearAlquilerComponent implements OnInit {
 		this.alquilerUsuarioService.registrarAlquilerUsuarioExistente(this.alquiler).subscribe(res => {
 		this.respuesta = res;
 		this.router.navigate(['/alquiler/listar-alquiler']);
-		this.toast.success('Registro exitoso', 'REGISTRO DE ALQUILER');
 
-	}); }
+	}); 
+}
 }
