@@ -2,7 +2,7 @@ import { Alquiler } from './../model/alquiler';
 import { environment } from './../../../../../environments/environment';
 import { UsuarioAlquiler } from './../model/usuario-alquiler';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { RestResponse } from './../../shared/model/restResponse.model';
 import { HttpService } from '@core-service/http.service';
@@ -32,10 +32,8 @@ export class AlquilerUsuarioService {
 	}
 
 	public crearUsuarioAlquiler(usuarioAlquiler: UsuarioAlquiler)  {
-		const subject = new BehaviorSubject(this.mensajeError);
-		this.http2.doPost<UsuarioAlquiler, any>(`${this.apiServerUrl}/usuarios/alquiler`, usuarioAlquiler).subscribe(res => {
-			subject.subscribe(res);
-		});
+
+		return this.http.post<UsuarioAlquiler>(`${this.apiServerUrl}/usuarios/alquiler`, usuarioAlquiler);
 
 	}
 

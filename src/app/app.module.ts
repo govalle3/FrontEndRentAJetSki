@@ -16,7 +16,7 @@ import { AlquilerUsuarioNuevoComponent } from './feature/feature-alquiler-usuari
   declarations: [
     AppComponent,
     HomeComponent,
-    AlquilerUsuarioNuevoComponent    
+    AlquilerUsuarioNuevoComponent  // acá estaría cargando el componente?    
   ],
 
   imports: [

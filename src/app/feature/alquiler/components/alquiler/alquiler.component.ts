@@ -1,15 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { ManejadorErrorService } from './../../../../shared/manejador-error.service';
+
+
 
 @Component({
 	selector: 'app-alquiler',
 	templateUrl: './alquiler.component.html',
 	styleUrls: ['./alquiler.component.css']
 })
+
 export class AlquilerComponent implements OnInit {
 
-	constructor() { }
+	public mensaje: string;
+	public observable: any;
 
-	ngOnInit(): void {
+	constructor(protected manejadorErrorService: ManejadorErrorService) {
+		this.observable = this.manejadorErrorService.subjectObservable.subscribe(res => {
+			alert('mensaje de prueba');
+			this.mensaje = res;
+			
+		});
+	 }
+
+	ngOnInit() {
+		
 	}
-
 }

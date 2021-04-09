@@ -2,17 +2,21 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
+import { ManejadorErrorService } from './../../shared/manejador-error.service';
 
 
 @Injectable()
 export class ManejadorError implements ErrorHandler {
-  constructor() {}
+  constructor(protected manejadorErrorService: ManejadorErrorService) {}
 
   
   handleError(error: string | Error): void {
+    
     const mensajeError = this.mensajePorDefecto(error);
+    this.manejadorErrorService.generarEventoMensajeError(mensajeError);
     this.imprimirErrorConsola(mensajeError);
   }
+
 // errores A NIVEL GENERAL DE LA APP
   private mensajePorDefecto(error) {
 
@@ -24,6 +28,7 @@ export class ManejadorError implements ErrorHandler {
 
         return error.error.message;
       }
+
     }
     return error;
   }

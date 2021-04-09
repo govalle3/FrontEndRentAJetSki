@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class CrearUsuarioAlquilerComponent implements OnInit {
 
 	public usuarioAlquiler: UsuarioAlquiler;
-
+	public respuesta: any;
 	public horaYFecha: string;
 
 	constructor(private alquilerUsuarioSerivce: AlquilerUsuarioService, protected router: Router) {
@@ -41,6 +41,10 @@ export class CrearUsuarioAlquilerComponent implements OnInit {
 		this.usuarioAlquiler.fechaYHoraRenta = currYear + (currMonth > 9 ? '-' : '-0') + currMonth +
 		(currDate > 9 ? '-' : '-0') + currDate + (currHour > 9 ? ' ' : ' 0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
 
-		this.alquilerUsuarioSerivce.crearUsuarioAlquiler(this.usuarioAlquiler);
+		this.alquilerUsuarioSerivce.crearUsuarioAlquiler(this.usuarioAlquiler).subscribe(res => {
+			this.respuesta = res;
+			this.router.navigate(['/alquiler/listar-alquiler']);})
+
 	}
+
 }

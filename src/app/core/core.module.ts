@@ -9,12 +9,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [ToolbarComponent, NavbarComponent],
   imports: [
-    CommonModule,
-    RouterModule
+
+  CommonModule,
+    RouterModule,
+    SharedModule
   ],
   exports: [ToolbarComponent, NavbarComponent],
   providers: [

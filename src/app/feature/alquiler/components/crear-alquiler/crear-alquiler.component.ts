@@ -34,7 +34,7 @@ export class CrearAlquilerComponent implements OnInit {
 		this.alquilerUsuarioService.registrarAlquilerUsuarioExistente(this.alquiler).subscribe(res => {
 		this.respuesta = res;
 		this.router.navigate(['/alquiler/listar-alquiler']);
-
+// asi va sin el flujo del error
 	}); 
 }
 }
