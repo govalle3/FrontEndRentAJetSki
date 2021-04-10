@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable(
-
+  {
+    providedIn: 'root'
+  }
 )
 
   
 export class ManejadorErrorService {
   
-  private subject = new Subject<string>();
-  public subjectObservable = this.subject.asObservable();
+  public subject = new Subject<string>();
+  
   
 
   constructor() {

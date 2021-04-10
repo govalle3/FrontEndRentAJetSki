@@ -15,8 +15,7 @@ export class AlquilerComponent implements OnInit {
 	public observable: any;
 
 	constructor(protected manejadorErrorService: ManejadorErrorService) {
-		this.observable = this.manejadorErrorService.subjectObservable.subscribe(res => {
-			alert('mensaje de prueba');
+		this.observable = this.manejadorErrorService.subject.subscribe(res => {
 			this.mensaje = res;
 			
 		});

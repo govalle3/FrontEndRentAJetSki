@@ -2,20 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityGuard } from '@core/guard/security.guard';
 import { HomeComponent } from '@home/home.component';
-import { AlquilerUsuarioNuevoComponent } from './feature/feature-alquiler-usuario-nuevo/alquiler-usuario-nuevo/alquiler-usuario-nuevo.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
-  // deberia cargar el componente alquiler unicamente
-  { path: 'alquiler',loadChildren: () => import('./../app/feature/alquiler/alquiler.module').then(mod => mod.AlquilerModule) },
-  { path: 'listar-pagar-alquiler', loadChildren: () => import('./feature/feature-listar-pagar-alquiler/listar-pagar-alquiler.module').then(mod => mod.ListarPagarAlquilerModule)},
-  { path: 'alquiler-usuario-nuevo', component: AlquilerUsuarioNuevoComponent, canActivate: [SecurityGuard] }
+  { path: 'alquiler-lazy', loadChildren: () => import('./feature/feature-alquiler/alquiler-lazy.module').then(mod => mod.AlquilerLazyModule)},
+  { path: 'listar-pagar-alquiler', loadChildren: () => import('./feature/feature-listar-pagar-alquiler/listar-pagar-alquiler.module').then(mod => mod.ListarPagarAlquilerModule)}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

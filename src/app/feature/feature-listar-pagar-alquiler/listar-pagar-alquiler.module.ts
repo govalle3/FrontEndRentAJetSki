@@ -3,19 +3,23 @@ import { PagoAlquilerComponent } from './pago-alquiler/pago-alquiler.component';
 import { ListadoAlquilerComponent } from './listado-alquiler/listado-alquiler.component';
 import { ListarPagarAlquilerRoutingModule } from './listar-pagar-alquiler-routing.module';
 import { SharedModule } from './../../shared/shared.module';
-import { ListadoPagoAlquilerComponent } from './listado-pago-alquiler/listado-pago-alquiler.component';
-
+import { FormsModule } from '@angular/forms';
+import { ListarPagarAlquilerService } from './listar-pagar-alquiler.service';
 
 @NgModule({
   declarations: [
+    
     PagoAlquilerComponent,
-    ListadoAlquilerComponent,
-    ListadoPagoAlquilerComponent
+    ListadoAlquilerComponent
   ],
 
   imports: [
-  ListarPagarAlquilerRoutingModule,
-  SharedModule
-  ]
+  
+ListarPagarAlquilerRoutingModule,
+  SharedModule,
+  FormsModule
+  ],
+
+  providers: [ListarPagarAlquilerService]
 })
 export class ListarPagarAlquilerModule { }
