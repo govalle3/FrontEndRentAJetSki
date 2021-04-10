@@ -15,6 +15,7 @@ export class CrearAlquilerComponent implements OnInit {
 	public alquiler: Alquiler;
 
 	constructor(protected alquilerUsuarioService: AlquilerUsuarioService, protected router: Router) {
+		
 		this.alquiler = new Alquiler();
 		const d = new Date();
 		const currDate = d.getDate();
@@ -26,7 +27,7 @@ export class CrearAlquilerComponent implements OnInit {
 		this.alquiler.fechaYHoraRenta = currYear + (currMonth > 9 ? '-' : '-0') + currMonth + (currDate > 9 ? '-' : '-0') + currDate + (currHour > 9 ? ' ' : 'T0') + currHour + (currMin > 9 ? ':' : ':0') + currMin + (currSec > 9 ? ':' : ':0') + currSec;
 	}
 
-	ngOnInit(): void {
+	ngOnInit() {
 	}
 
 	public crearAlquiler() {
@@ -34,7 +35,6 @@ export class CrearAlquilerComponent implements OnInit {
 		this.alquilerUsuarioService.registrarAlquilerUsuarioExistente(this.alquiler).subscribe(res => {
 		this.respuesta = res;
 		this.router.navigate(['/alquiler/listar-alquiler']);
-// asi va sin el flujo del error
 	}); 
 }
 }

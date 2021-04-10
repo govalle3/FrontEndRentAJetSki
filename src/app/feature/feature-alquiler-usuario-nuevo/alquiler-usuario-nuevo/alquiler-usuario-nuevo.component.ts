@@ -6,7 +6,8 @@ import { AlquilerUsuarioNuevoService } from './alquiler-usuario-nuevo.service';
 @Component({
   selector: 'app-alquiler-usuario-nuevo',
   templateUrl: './alquiler-usuario-nuevo.component.html',
-  styleUrls: ['./alquiler-usuario-nuevo.component.css']
+  styleUrls: ['./alquiler-usuario-nuevo.component.css'],
+  providers: [AlquilerUsuarioNuevoService]
 
 })
 export class AlquilerUsuarioNuevoComponent implements OnInit {

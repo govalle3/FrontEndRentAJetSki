@@ -8,9 +8,9 @@ import { RestResponse } from './../../shared/model/restResponse.model';
 import { HttpService } from '@core-service/http.service';
 import { Router } from '@angular/router';
 
-
-
-@Injectable()
+@Injectable(
+	
+)
 
 export class AlquilerUsuarioService {
 

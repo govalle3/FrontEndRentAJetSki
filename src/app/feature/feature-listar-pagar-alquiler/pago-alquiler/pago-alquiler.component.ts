@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlquilerUsuarioService } from './../../alquiler/shared/service/alquiler-usuario.service';
+import { Router } from '@angular/router';
+import { ListarPagarAlquilerService } from '../listar-pagar-alquiler.service';
+
 
 @Component({
   selector: 'app-pago-alquiler',
@@ -8,9 +10,32 @@ import { AlquilerUsuarioService } from './../../alquiler/shared/service/alquiler
 })
 export class PagoAlquilerComponent implements OnInit {
 
-  constructor(protected alquilerUsuarioService: AlquilerUsuarioService) { }
+  public total: number;
+	public respuesta: string;
+	public cedula: number;
+
+  constructor(protected listarPagarAlquilerService: ListarPagarAlquilerService, protected router: Router) {
+    if (sessionStorage.getItem('cedula')) {
+			this.cedula = JSON.parse(sessionStorage.getItem('cedula'));
+			this.traerDatosParaPago(this.cedula);
+		} else {
+			this.cedula = this.cedula;
+		}
+   }
 
   ngOnInit(): void {
   }
 
+  public traerDatosParaPago(cedula: number) {
+		this.listarPagarAlquilerService.pagar(cedula).subscribe(res => {
+		this.total = res;
+		console.log(this.total);
+	});
+}
+public pagar(cedula: number) {
+  this.listarPagarAlquilerService.actualizarDatosDePago(cedula).subscribe(res => {
+  this.respuesta = res + '';
+  this.router.navigate(['/listar-pagar-alquiler/lista-alquiler']);
+});
+}
 }
