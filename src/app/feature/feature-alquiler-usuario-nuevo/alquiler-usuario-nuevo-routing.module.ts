@@ -5,7 +5,7 @@ import { AlquilerUsuarioNuevoComponent } from './alquiler-usuario-nuevo/alquiler
 const routes: Routes =
 [
 	{
-		path: 'registrar',
+		path: '',
 		component: AlquilerUsuarioNuevoComponent
 
 	}

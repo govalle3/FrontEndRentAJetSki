@@ -6,7 +6,7 @@ import { AlquilerUsuarioRegistradoComponent } from './alquiler-usuario-registrad
 const routes: Routes = [
 
   {
-		path: 'registrado',
+		path: '',
 		component: AlquilerUsuarioRegistradoComponent
 
 	}
