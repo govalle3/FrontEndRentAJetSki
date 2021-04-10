@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManejadorErrorService } from '@shared/manejador-error.service';
 
 @Component({
   selector: 'app-alquiler-lazy',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class AlquilerLazyComponent implements OnInit {
 
   public mensaje: string;
+	public observable: any;
 
-  constructor() { }
+  constructor(protected manejadorErrorService: ManejadorErrorService) {
+    this.observable = this.manejadorErrorService.subject.subscribe(res => {
+			this.mensaje = res;
+			
+		});
+   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

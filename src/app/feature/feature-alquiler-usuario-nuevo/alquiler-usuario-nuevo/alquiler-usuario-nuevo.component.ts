@@ -11,7 +11,7 @@ import { AlquilerUsuarioNuevoService } from './alquiler-usuario-nuevo.service';
 })
 export class AlquilerUsuarioNuevoComponent implements OnInit {
 
-  public usuarioAlquiler: UsuarioAlquiler;
+    public usuarioAlquiler: UsuarioAlquiler;
 	public respuesta: any;
 	public horaYFecha: string;
 
@@ -38,7 +38,7 @@ export class AlquilerUsuarioNuevoComponent implements OnInit {
 
 		this.alquilerUsuarioNuevoService.crearUsuarioAlquiler(this.usuarioAlquiler).subscribe(res => {
 			this.respuesta = res;
-			this.router.navigate(['/alquiler-lazy/lista-alquiler']);})
+			this.router.navigate(['/listar-pagar-alquiler/lista-alquiler']);})
 
 	}
 }
